@@ -4,7 +4,6 @@ C:\Users\Lenovo\Desktop\user\users\users\bin\Debug\net6.0-windows\users.runtimec
 C:\Users\Lenovo\Desktop\user\users\users\bin\Debug\net6.0-windows\users.dll
 C:\Users\Lenovo\Desktop\user\users\users\bin\Debug\net6.0-windows\users.pdb
 C:\Users\Lenovo\Desktop\user\users\users\obj\Debug\net6.0-windows\users.csproj.AssemblyReference.cache
-C:\Users\Lenovo\Desktop\user\users\users\obj\Debug\net6.0-windows\users.Form1.resources
 C:\Users\Lenovo\Desktop\user\users\users\obj\Debug\net6.0-windows\users.csproj.GenerateResource.cache
 C:\Users\Lenovo\Desktop\user\users\users\obj\Debug\net6.0-windows\users.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Lenovo\Desktop\user\users\users\obj\Debug\net6.0-windows\users.AssemblyInfoInputs.cache
@@ -17,3 +16,6 @@ C:\Users\Lenovo\Desktop\user\users\users\obj\Debug\net6.0-windows\users.genrunti
 C:\Users\Lenovo\Desktop\user\users\users\obj\Debug\net6.0-windows\ref\users.dll
 C:\Users\Lenovo\Desktop\user\users\users\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\Lenovo\Desktop\user\users\users\obj\Debug\net6.0-windows\users.csproj.CopyComplete
+C:\Users\Lenovo\Desktop\user\users\users\bin\Debug\net6.0-windows\img\left.png
+C:\Users\Lenovo\Desktop\user\users\users\bin\Debug\net6.0-windows\img\right.png
+C:\Users\Lenovo\Desktop\user\users\users\obj\Debug\net6.0-windows\users.UserForm.resources

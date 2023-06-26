@@ -1,6 +1,6 @@
 ﻿namespace users
 {
-    partial class Form1
+    partial class UserForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -98,7 +98,7 @@
             buttonSearch.UseVisualStyleBackColor = false;
             buttonSearch.Click += buttonSearch_Click_1;
             // 
-            // Form1
+            // UserForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -110,8 +110,8 @@
             Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "UserForm";
+            Text = "UserForm";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

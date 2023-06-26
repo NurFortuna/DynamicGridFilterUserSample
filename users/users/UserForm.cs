@@ -1,11 +1,12 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using Newtonsoft.Json;
+using System.Reflection;
 
 namespace users
 {
-    public partial class Form1 : Form
+    public partial class UserForm : Form
     {
-        public Form1()
+        public UserForm()
         {
             InitializeComponent();
             InitializeDataGridView();
@@ -126,21 +127,34 @@ namespace users
 
         }
 
+
         private void SetButtonIcons()
         {
-            button1.Image = Image.FromFile("C:\\Users\\Lenovo\\Desktop\\user\\img\\right.png"); button1.Image = new Bitmap(button1.Image, new Size(20, 20));
-            button1.ImageAlign = ContentAlignment.MiddleCenter;
+            string rightImagePath = "img/right.png";
+            string leftImagePath = "img/left.png";
 
-            button2.Image = Image.FromFile("C:\\Users\\Lenovo\\Desktop\\user\\img\\left.png"); // Sol ok resmi i�in dosya yolunu belirtin
-            button2.Image = new Bitmap(button2.Image, new Size(20, 20));
-            button2.ImageAlign = ContentAlignment.MiddleCenter;
+            if (File.Exists(rightImagePath))
+            {
+                button1.Image = Image.FromFile(rightImagePath);
+                button1.Image = new Bitmap(button1.Image, new Size(20, 20));
+                button1.ImageAlign = ContentAlignment.MiddleCenter;
 
+            }
+
+            if (File.Exists(leftImagePath))
+            {
+                button2.Image = Image.FromFile(leftImagePath);
+                button2.Image = new Bitmap(button2.Image, new Size(20, 20));
+                button2.ImageAlign = ContentAlignment.MiddleCenter;
+
+            }
 
             button1.Text = "";
             button2.Text = "";
 
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+
 
         }
 
