@@ -19,3 +19,4 @@ C:\Users\Lenovo\Desktop\user\users\users\obj\Debug\net6.0-windows\users.csproj.C
 C:\Users\Lenovo\Desktop\user\users\users\bin\Debug\net6.0-windows\img\left.png
 C:\Users\Lenovo\Desktop\user\users\users\bin\Debug\net6.0-windows\img\right.png
 C:\Users\Lenovo\Desktop\user\users\users\obj\Debug\net6.0-windows\users.UserForm.resources
+C:\Users\Lenovo\Desktop\user\users\users\bin\Debug\net6.0-windows\data\ExportJson.json

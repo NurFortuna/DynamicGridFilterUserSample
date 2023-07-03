@@ -10,13 +10,13 @@ namespace users
         {
             InitializeComponent();
             InitializeDataGridView();
-            LoadUserList();
             SetButtonIcons();
+            LoadUserList();
 
         }
 
-        private List<User> userList;
-        private List<User> filteredList;
+        private List<User>? userList;
+        private List<User>? filteredList;
         private const int PageSize = 100;
         private int currentPage = 1;
         private int totalPageCount;
@@ -48,14 +48,28 @@ namespace users
 
         private void LoadUserList()
         {
-            string jsonFilePath = "C:\\Users\\Lenovo\\Desktop\\user\\ExportJson.json";
+            //string jsonFilePath = "C:\\Users\\Lenovo\\Desktop\\user\\ExportJson.json";
+
+            string jsonFileName = "ExportJson.json";
+            string jsonFilePath = Path.Combine(Application.StartupPath, "data", jsonFileName);
+
 
             try
             {
                 string jsonContent = System.IO.File.ReadAllText(jsonFilePath);
                 userList = JsonConvert.DeserializeObject<List<User>>(jsonContent);
-                filteredList = userList.ToList();
-                dataGridView1.DataSource = userList;
+
+                if (userList != null)
+                {
+                    filteredList = userList.ToList();
+                    dataGridView1.DataSource = userList;
+                }
+                else
+                {
+                    userList = new List<User>();
+                    filteredList = new List<User>();
+                    dataGridView1.DataSource = null;
+                }
             }
             catch (Exception ex)
             {
@@ -65,21 +79,27 @@ namespace users
 
         private void Search(string searchText)
         {
-            if (!string.IsNullOrEmpty(searchText))
+            if (userList != null)
             {
-                filteredList = userList.FindAll(u =>
-                    (u.ID?.Contains(searchText, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                    (u.JobTitle?.Contains(searchText, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                    (u.EmailAddress?.Contains(searchText, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                    (u.FirstNameLastName?.Contains(searchText, StringComparison.OrdinalIgnoreCase) ?? false)
-                );
+                if (!string.IsNullOrEmpty(searchText))
+                {
+                    filteredList = userList.FindAll(u =>
+                        (u.ID?.Contains(searchText, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                        (u.JobTitle?.Contains(searchText, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                        (u.EmailAddress?.Contains(searchText, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                        (u.FirstNameLastName?.Contains(searchText, StringComparison.OrdinalIgnoreCase) ?? false)
+                    );
+                }
+                else
+                {
+                    filteredList = userList.ToList();
+                }
             }
             else
             {
-                filteredList = userList.ToList();
+                filteredList = new List<User>();
             }
 
-            //
             totalPageCount = (int)Math.Ceiling((double)filteredList.Count / PageSize);
             currentPage = Math.Min(currentPage, totalPageCount);
 
@@ -89,7 +109,7 @@ namespace users
 
         private void UpdateDataGridView()
         {
-            if (filteredList.Count > 0)
+            if (filteredList!= null && filteredList.Count > 0)
             {
                 int startIndex = (currentPage - 1) * PageSize;
                 int count = Math.Min(PageSize, filteredList.Count - startIndex);
@@ -104,7 +124,7 @@ namespace users
 
         private void UpdatePaginationButtons()
         {
-            if (filteredList.Count > 0)
+            if (filteredList != null && filteredList.Count > 0)
             {
                 int startIndex = (currentPage - 1) * PageSize;
                 int count = Math.Min(PageSize, filteredList.Count - startIndex);
